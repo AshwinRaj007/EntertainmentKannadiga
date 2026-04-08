@@ -1,0 +1,763 @@
+﻿.hero {
+    width: 100%;
+    min-height: 95vh; /* ✅ flexible height */
+    background-image: url('/image/Profile1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex; /* ✅ helps alignment */
+    align-items: flex-end; /* text at bottom */
+}
+
+    /* Better overlay (lighter + gradient) */
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4); /* adjust darkness */
+    }
+
+/*background: linear-gradient( to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9) );*/
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+    .hero-content h1 {
+        font-size: 60px;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+        color: #00c6ff;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+        color: #e0e0e0;
+    }
+/*------------------------------Slider Starts---------------------------------------------*/
+.brand-section {
+    background: #0b0a0a;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+    /* TITLE */
+    .brand-section h2 {
+        color: #ffc107;
+        font-size: 36px;
+        margin-bottom: 50px;
+        letter-spacing: 3px;
+    }
+
+/* CAROUSEL */
+.carousel {
+    position: relative;
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* TRACK */
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* SLIDE (REEL STYLE 🔥) */
+.slide {
+    min-width: 250px;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+    /* IMAGE */
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        filter: brightness(0.6);
+        transition: 0.4s;
+    }
+
+    /* HOVER = ACTIVE EFFECT 🔥 */
+    .slide:hover {
+        transform: scale(1.08);
+        z-index: 2;
+    }
+
+        .slide:hover img {
+            filter: brightness(1);
+        }
+
+    /* GLOW EFFECT */
+    .slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+        opacity: 0;
+        transition: 0.3s;
+        pointer-events: none;
+    }
+
+    .slide:hover::after {
+        opacity: 1;
+    }
+
+/* NAV BUTTONS */
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 10;
+    padding: 6px 12px 17px 17px;
+}
+
+.prev {
+    left: 0px;
+}
+
+.next {
+    right: 0px;
+}
+
+.nav:hover {
+    background: #ffc107;
+    color: black;
+}
+
+.slide a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.slide::before {
+    content: "\f16d"; /* Instagram icon */
+    font-family: "Font Awesome 6 Brands";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.slide:hover::before {
+    opacity: 1;
+}
+/*------------------------------End---------------------------------------------*/
+
+.btn {
+    padding: 12px 25px;
+    background: #00c6ff;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+    .btn.outline {
+        border: 2px solid white;
+        color: white;
+    }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* makes sides black */
+    overflow-x: hidden; /* removes horizontal scroll gap */
+}
+
+.container, .container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+/*------------------------Profile starts---------------------------------------------------*/
+
+/* HERO TEXT POSITION */
+.hero-text {
+    position: relative; /* ✅ no absolute */
+    z-index: 2;
+    color: white;
+    padding: 20px 30px;
+    max-width: 800px;
+}
+
+/* SMALL TAGLINE */
+.tagline {
+    color: white;
+    font-size: clamp(12px, 2vw, 18px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* BIG TITLE */
+.main-title {
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* PERFECT HALF SPLIT */
+    background: linear-gradient( to right, #ffc107 0%, #ffc107 50%, #ff0000 50%, #ff0000 100% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* REMOVE HEAVY BLACK LOOK */
+    -webkit-text-stroke: 1px rgba(0,0,0,0.5);
+    /* SOFT 3D (not overpowering) */
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.4), 4px 4px 6px rgba(0,0,0,0.3);
+}
+
+    .main-title:hover {
+        transform: scale(1.05) rotateX(5deg);
+        transition: 0.3s ease;
+    }
+
+/* SOCIAL ICONS */
+.social-icons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+    .social-icons a {
+        width: 55px;
+        height: 55px;
+        background: #ffc107;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .social-icons i {
+        font-size: 22px;
+        color: black;
+    }
+
+    /* HOVER EFFECT */
+    .social-icons a:hover {
+        transform: scale(1.1);
+        background: #00c6ff;
+    }
+
+.footer-social {
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.yellow-text {
+    color: #8a6d10; /* yellow */
+}
+
+.red-text {
+    color: #a40000; /* red */
+}
+
+/* Instagram → Yellow */
+.social-icons .instagram {
+    background-color: #d4af37;
+}
+
+/* YouTube → Red */
+.social-icons .youtube {
+    background-color: red;
+    color: #fff; /* white icon looks better on red */
+}
+/*---------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------*/
+.herotitle {
+    height: 20vh; /* ✅ smaller */
+    background-image: url('/image/ProfileTitle.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: contain; /* ✅ show full image */
+    background-repeat: no-repeat;
+    background-color: #0b0a0a;
+}
+
+/* Only apply parallax on desktop */
+@media (min-width: 1024px) {
+    .herotitle {
+        background-attachment: fixed;
+        height: 100vh;
+        background-size: contain; /* ✅ show full image */
+        background-repeat: no-repeat;
+        background-color: #0b0a0a; /* fills empty space */
+    }
+}
+/*---------------------------------------------------------------------------*/
+
+/*-------------------------Responsive--------------------------------------------------*/
+.main-title {
+    font-size: clamp(32px, 8vw, 80px); /* ✅ auto resize */
+}
+
+.slide {
+    min-width: 80%;
+}
+
+@media (min-width: 768px) {
+    .slide {
+        min-width: 45%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .slide {
+        min-width: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        align-items: center; /* center vertically */
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-text {
+        padding: 20px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+/*---------------------------------------------------------------------------*/
+
+.custom-footer {
+    background-color: #0b0a0a;
+    text-align: center;
+    padding: 7px 0;
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(to right, #d4af37 50%, red 50%) 1;
+}
+
+
+.footer-text {
+    color: #ccc;
+    font-size: 14px;
+}
+/*----------------------------Youtube starts-----------------------------------------------*/
+/* SECTION */
+.podcast-section {
+    display: flex;
+    gap: 60px;
+    padding: 100px 20px;
+    background: #0b0a0a;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* LEFT */
+.podcast-left {
+    flex: 1;
+}
+.youtube-heading {
+    font-size: 42px;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    /* Gradient: half yellow, half red */
+    background: linear-gradient(to right, #ffc107 50%, red 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Soft shadow for 3D effect */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .youtube-heading {
+        font-size: 28px;
+    }
+}
+/* HEADING */
+.podcast-heading {
+    color: red; /* YouTube brand color */
+    font-size: 32px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    /* YouTube icon style */
+    .podcast-heading i {
+        font-size: 34px;
+    }
+/* MAKE IMAGE CIRCLE */
+
+/* CARD STYLE 🔥 */
+.podcast-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 18px 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+    /* TEXT */
+    .podcast-card h4 {
+        color: white;
+        font-size: 18px;
+        margin: 0;
+    }
+
+    /* PLAY BUTTON */
+    .podcast-card a {
+        background: red;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    /* HOVER EFFECT 🔥 */
+    .podcast-card:hover {
+        transform: translateX(10px) scale(1.02);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    }
+
+    .podcast-card a:hover {
+        background: #ffc107;
+        color: black;
+    }
+
+/* RIGHT SIDE */
+.podcast-right {
+    flex: 1;
+    position: relative;
+    text-align: center;
+}
+
+    /* IMAGE */
+    .podcast-right img {
+        /*width: 100%;
+        max-width: 307px;
+        border-radius: 174px;
+        filter: brightness(0.7);
+        transition: 0.4s;
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);*/
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        /* subtle animation always visible */
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    }
+
+        .podcast-right img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+        }
+/* PLAY BUTTON CENTER */
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: red;
+    color: white;
+    font-size: 30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HOVER */
+.podcast-right:hover img {
+    filter: brightness(1);
+    transform: scale(1.05);
+}
+
+.podcast-right:hover .play-btn {
+    background: #ffc107;
+    color: black;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .podcast-section {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* KANNADA TITLE STYLE 🔥 */
+.kannada-title {
+    font-size: 38px;
+    font-weight: 900;
+    margin-top: 20px;
+    text-align: center;
+    /* HALF YELLOW / HALF RED */
+    background: linear-gradient( to right, #ffc107 0%, #ffc107 50%, red 50%, red 100% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* FONT */
+    font-family: 'Poppins', sans-serif;
+    /* GLOW + DEPTH */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5), 0 0 10px rgba(255, 193, 7, 0.4), 0 0 15px rgba(255, 0, 0, 0.4);
+    font-family: 'Noto Sans Kannada', sans-serif;
+}
+
+/*.podcast-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}*/
+
+    /* desktop hover */
+    /*.podcast-card:hover {
+        transform: translateX(10px);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    }*/
+
+    /* ✅ MOBILE TOUCH EFFECT */
+    /*.podcast-card:active {
+        transform: scale(0.97);
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    }*/
+
+.podcast-right img,
+.podcast-card {
+    will-change: transform;
+}
+/*----------------------------End-----------------------------------------------*/
+
+/*----------------------------About Section-----------------------------------------------*/
+/* ABOUT SECTION */
+.about-section {
+    background-color: #0b0a0a;
+    padding: 80px 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* FLEX CONTAINER */
+.about-container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: nowrap; /* Desktop: no wrap */
+}
+
+/* LEFT COLUMN: TEXT */
+.about-text {
+    flex: 1 1 60%;
+}
+
+    .about-text h2 {
+        font-size: 42px;
+        font-weight: 900;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #ffc107 50%, red 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .about-text p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #e0e0e0;
+    }
+
+/* RIGHT COLUMN: IMAGE */
+.about-image {
+    flex: 0 0 300px; /* Desktop size */
+    display: flex;
+    justify-content: center;
+}
+
+    .about-image img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #ffc107;
+        box-shadow: 0 0 25px rgba(255, 193, 7, 0.5);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 193, 7, 0.8);
+        }
+
+/* MOBILE: keep image next to text */
+@media (max-width: 768px) {
+    .about-container {
+        flex-wrap: nowrap; /* prevent stacking */
+        gap: 15px;
+    }
+
+    .about-text {
+        flex: 1 1 auto; /* allow text to shrink */
+        font-size: 14px;
+    }
+
+        .about-text h2 {
+            font-size: 28px;
+        }
+
+    .about-image {
+        flex: 0 0 100px; /* smaller image on mobile */
+    }
+
+        .about-image img {
+            width: 100px;
+            height: 100px;
+        }
+}
+/*----------------------------End-----------------------------------------------*/
+
+/*----------------------------Get in touch section-----------------------------------------------*/
+/* CONTACT SECTION */
+.contact-section {
+    background-color: #0b0a0a;
+    padding: 80px 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* FLEX CONTAINER */
+.contact-container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: nowrap; /* Desktop: no wrap */
+}
+
+/* LEFT COLUMN */
+.contact-text {
+    flex: 1 1 60%;
+}
+
+    .contact-text h2 {
+        font-size: 42px;
+        font-weight: 900;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #ffc107 50%, red 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .contact-text p {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #e0e0e0;
+    }
+
+.contact-email {
+    font-size: 18px;
+    color: #ffc107;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+    .contact-email:hover {
+        color: red;
+    }
+
+/* RIGHT COLUMN */
+.contact-image {
+    flex: 0 0 300px; /* Desktop size */
+    display: flex;
+    justify-content: center;
+}
+
+    .contact-image img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #ffc107;
+        box-shadow: 0 0 25px rgba(255, 193, 7, 0.5);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+        .contact-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 193, 7, 0.8);
+        }
+
+/* MOBILE: keep image next to text */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-wrap: nowrap; /* prevent stacking */
+        gap: 15px;
+    }
+
+    .contact-text {
+        flex: 1 1 auto; /* allow text to shrink */
+        font-size: 14px;
+    }
+
+        .contact-text h2 {
+            font-size: 28px;
+        }
+
+    .contact-image {
+        flex: 0 0 100px; /* smaller image on mobile */
+    }
+
+        .contact-image img {
+            width: 100px;
+            height: 100px;
+        }
+}
+/*----------------------------End-----------------------------------------------*/
