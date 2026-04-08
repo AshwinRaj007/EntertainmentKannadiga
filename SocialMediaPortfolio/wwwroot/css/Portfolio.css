@@ -1,7 +1,7 @@
 ﻿.hero {
     width: 100%;
     min-height: 95vh; /* ✅ flexible height */
-    background-image: url('image/Profile1.jpeg');
+    background-image: url('/image/Profile1.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -300,7 +300,7 @@ html, body {
 /*---------------------------------------------------------------------------*/
 .herotitle {
     height: 20vh; /* ✅ smaller */
-    background-image: url('image/ProfileTitle.jpeg');
+    background-image: url('/image/ProfileTitle.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
