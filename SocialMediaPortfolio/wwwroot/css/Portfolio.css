@@ -299,7 +299,6 @@ html, body {
 /*---------------------------------------------------------------------------*/
 .herotitle {
     height: 20vh; /* ✅ smaller */
-    background-image: url('/image/ProfileTitle.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
