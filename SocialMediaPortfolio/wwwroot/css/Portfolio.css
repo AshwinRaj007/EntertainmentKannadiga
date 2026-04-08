@@ -1,7 +1,6 @@
 ﻿.hero {
     width: 100%;
     min-height: 95vh; /* ✅ flexible height */
-    background-image: url('./SocialMediaPortfolio/wwwroot/image/Profile1.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
