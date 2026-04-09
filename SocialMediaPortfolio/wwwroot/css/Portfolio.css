@@ -317,6 +317,14 @@ html, body {
         background-color: #0b0a0a; /* fills empty space */
     }
 }
+
+@media (max-width: 768px) {
+    .herotitle {
+        height: 40vh; /* 🔥 increase height */
+        background-size: cover; /* fill properly */
+        background-position: center;
+    }
+}
 /*---------------------------------------------------------------------------*/
 
 /*-------------------------Responsive--------------------------------------------------*/
